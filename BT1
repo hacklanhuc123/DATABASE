@@ -1,0 +1,44 @@
+CREATE DATABASE student CHARACTER SET utf8 COLLATE utf8_general_ci;
+use student;
+CREATE TABLE student(
+id int NOT NULL PRIMARY KEY ,
+first_name varchar(123),
+last_name varchar(123),
+gender varchar (100),
+age int NOT NULL DEFAULT 18 ,
+telephone int(10),
+score int(3 ) CHECK ( score >= 0 && score <= 100)
+);
+
+describe student;
+
+DROP TABLE stundent;
+
+
+insert into student (id, first_name, last_name, gender, age, telephone, score) values (1," nguyen " , " mot " , " male" , 30 , "01234567999" ,50 );
+insert into student (id, first_name, last_name, gender, age, telephone, score) values (2," nguyen " , " hai " , " female" , 33 , "0123456789" , 70 );
+insert into student (id, first_name, last_name, gender, age, telephone, score) values (3," lee " , " nike " , " male" , 40 , "0123789456" , 20 );
+--insert into student (id, first_name, last_name, gender, age, telephone, score) values (4," nike " , " bon " , " female" , 50 ," " , 35 );
+--insert into student (id, first_name, last_name, gender, age, telephone, score) values (3," lee " , " nike " , " male" , 60 ,"" , 10 );
+
+DROP TABLE student;
+
+
+
+SELECT COUNT(id)
+FROM student ;
+SELECT COUNT (male)
+FROM student;
+SELECT COUNT (female)
+FROM student;
+SELECT * FROM student
+WHERE gender='female';
+SELECT * FROM student
+WHERE telephone=" ";
+SELECT * FROM student
+WHERE score>60;
+SELECT * FROM student
+WHERE score<60;
+
+SELECT * FROM student
+WHERE first_name=" nike " || last_name= " nike ";
